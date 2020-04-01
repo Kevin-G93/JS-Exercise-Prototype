@@ -29,7 +29,7 @@ Airplane.prototype.land = function () {
 /*
   TASK 1
     - Write a Person Constructor that initializes `name` and `age` from arguments.
-    - All instances of Person should initialize with an empty `stomach` array.
+    - All instances of Person should initialize with an empty `stomach` array. 
     - Give instances of Person the ability to `.eat("someFood")`:
         + When eating an edible, it should be pushed into the `stomach`.
         + The `eat` method should have no effect if there are 10 items in the `stomach`.
@@ -39,10 +39,23 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
-
+function Person(name, age, stomach) {
+ this.name = name;
+ this.age = age;
+ this.stomach = [];
 }
+Person.prototype.eat = function(someFood){
+if (this.stomach.length < 10){
 
+  this.stomach.push(someFood)
+}
+};
+Person.prototype.poop = function (){
+  this.stomach=[];
+}
+Person.prototype.toString = function () {
+  console.log(`${this.name}, ${this.age}`);
+}
 /*
   TASK 2
     - Write a Car constructor that initializes `model` and `milesPerGallon` from arguments.
@@ -57,9 +70,16 @@ function Person() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
+function Car(model, milesPerGallon) {
+  this.tank =0,
+  this.odometer = 0
+  this.fill = function(){
+    if( this.tank = 0)
+  this.tank.fill(this.tank);
 
+  }
 }
+
 
 /*
   TASK 3
@@ -68,18 +88,26 @@ function Car() {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
-
+function Baby(attr) {
+ this.name = attr.name,
+ this.age = attr.age,
+ this.favoriteToy = attr.favoriteToy,
+ this.play = function(){
+   return `Playing with ${this.favoriteToy}`
+ } 
 }
-
+ Person.prototype new Baby({
+name: 'xxx',
+age: 18,
+ })
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. If the new keyword is used when calling the function, `this` inside the function is a brand new object.
+  2.  If call or bind are used to call a function, `this` inside the function is the object that is passed in as the argument.
+  3.  Whenever javaScript's call method is used, `this` is explicitly defined.
+  4. When in the global scope, the value of `this` will be the window/console Object
 */
 
 
